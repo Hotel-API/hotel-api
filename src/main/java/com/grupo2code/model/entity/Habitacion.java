@@ -29,5 +29,5 @@ public class Habitacion {
     @Column(name = "updated_at")
     private String updatedAt;
 
-
+// prueba de trabajo
 }
