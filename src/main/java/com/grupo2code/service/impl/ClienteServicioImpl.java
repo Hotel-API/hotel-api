@@ -1,8 +1,9 @@
 package com.grupo2code.service.impl;
-
+import org.springframework.transaction.annotation.Transactional;
 import com.grupo2code.model.entity.Cliente;
 import com.grupo2code.repository.ClienteRepository;
-import jakarta.transaction.Transactional;
+import com.grupo2code.service.ClienteServicio;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,36 +13,39 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class ClienteServicio implements com.grupo2code.service.ClienteServicio {
+public class ClienteServicioImpl implements ClienteServicio {
     private final ClienteRepository clienteRepository;
 
 
-    @Transactional(readOnly = true)
     @Override
+    @Transactional(readOnly = true)
     public List<Cliente> getAll() {
         return clienteRepository.findAll();
     }
-    @Transactional(readOnly = true)
+
     @Override
+    @Transactional(readOnly = true)
     public Page<Cliente> paginate(Pageable pageable) {
         return clienteRepository.findAll(pageable);
     }
-    @Transactional(readOnly =true)
     @Override
+    @Transactional(readOnly = true)
     public Cliente findById(Integer id) {
         return clienteRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("No se encontro el cliente con el id: " + id));
     }
-    @Transactional
+
     @Override
+    @Transactional
     public Cliente create(Cliente cliente) {
         cliente.setCreatedAt(LocalDateTime.now());
         return clienteRepository.save(cliente);
     }
-    @Transactional
+
     @Override
-    public Cliente update(Integer Id, Cliente updateCliente) {
-        Cliente clienteFromDB =findById(id);
+    @Transactional
+    public Cliente update(Integer id, Cliente updateCliente) {
+        Cliente clienteFromDB =findById(id); // Utiliza el método findById para obtener el autor existente
         clienteFromDB.setNombre(updateCliente.getNombre());
         clienteFromDB.setApellido(updateCliente.getApellido());
         clienteFromDB.setEmail(updateCliente.getEmail());
@@ -50,11 +54,12 @@ public class ClienteServicio implements com.grupo2code.service.ClienteServicio {
 
         return clienteRepository.save(clienteFromDB);
     }
-    @Transactional
+
     @Override
-    public void delete(Integer Id) {
+    @Transactional
+    public void delete(Integer id) {
         Cliente cliente = findById(id);
-        clienteRepository.deleteById(Id);
+        clienteRepository.delete(cliente);
 
     }
 }
