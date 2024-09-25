@@ -8,7 +8,8 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "Costumers")
+@Table(name = "costumers")
+
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,7 +47,9 @@ public class Cliente {
 
     @Enumerated (EnumType.STRING)
     @Column(name = "role")
+
     private Role role;
+
 
 
 }

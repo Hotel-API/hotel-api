@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @Entity
@@ -40,8 +39,6 @@ public class Reserva {
     private Habitacion habitacion;
 
     // Relación OneToMany para obtener los servicios relacionados con la reserva
-   // @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
+    // @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
     //private List<ReservaServicio> servicio;
-
 }
-

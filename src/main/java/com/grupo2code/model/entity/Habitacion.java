@@ -2,7 +2,7 @@ package com.grupo2code.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
+//JPA
 @Data
 @Entity
 @Table(name = "habitaciones")
@@ -28,5 +28,6 @@ public class Habitacion {
 
     @Column(name = "updated_at")
     private String updatedAt;
+
 
 }

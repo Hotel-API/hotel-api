@@ -1,4 +1,4 @@
-INSERT INTO clientes (id, dni_ce, nombres, apellidos, nacionalidad, email, password, telefono, fechas_nacimiento, created_at, updated_at) VALUES
+INSERT INTO costumers (id, dni_ce, nombres, apellidos, nacionalidad, email, password, telefono, fecha_nacimiento, created_at, updated_at) VALUES
                                                                                                                                               (1, 12345678, 'Juan', 'Pérez', 'Peruano', 'juan.perez@example.com', 'password123', '987654321', '1985-05-20', NOW(), NOW()),
                                                                                                                                               (2, 87654321, 'María', 'González', 'Colombiana', 'maria.gonzalez@example.com', 'password456', '987654322', '1990-07-15', NOW(), NOW()),
                                                                                                                                               (3, 11223344, 'Carlos', 'Ramírez', 'Chileno', 'carlos.ramirez@example.com', 'password789', '987654323', '1988-02-10', NOW(), NOW()),
@@ -45,29 +45,4 @@ INSERT INTO servicios (id, nombre, descripcion, precio, created_at, updated_at) 
                                                                                     (8, 'Restaurante', 'Cena gourmet en el restaurante del hotel', '50.00', NOW(), NOW()),
                                                                                     (9, 'Transfer', 'Traslado al aeropuerto', '30.00', NOW(), NOW()),
                                                                                     (10, 'Room Service', 'Servicio a la habitación 24 horas', '18.00', NOW(), NOW());
-ON CONFLICT DO NOTHING;
-
-INSERT INTO reserva_servicios (reserva_id, servicio_id, fecha_rservicio) VALUES
-                                                                             (1, 1, NOW()),
-                                                                             (1, 2, NOW()),
-                                                                             (2, 3, NOW()),
-                                                                             (2, 4, NOW()),
-                                                                             (3, 5, NOW()),
-                                                                             (3, 6, NOW()),
-                                                                             (4, 7, NOW()),
-                                                                             (4, 8, NOW()),
-                                                                             (5, 9, NOW()),
-                                                                             (5, 10, NOW());
-ON CONFLICT DO NOTHING;
-INSERT INTO pagos (id, fecha_pago, monto, metodo_pago, created_at, updated_at, reserva_id) VALUES
-                                                                                               (1, '2024-10-05 12:00:00', '100.00', 'Tarjeta de crédito', NOW(), NOW(), 1),
-                                                                                               (2, '2024-10-12 12:00:00', '150.00', 'Efectivo', NOW(), NOW(), 2),
-                                                                                               (3, '2024-10-18 12:00:00', '250.00', 'Tarjeta de crédito', NOW(), NOW(), 3),
-                                                                                               (4, '2024-10-22 12:00:00', '300.00', 'Transferencia bancaria', NOW(), NOW(), 4),
-                                                                                               (5, '2024-11-05 12:00:00', '400.00', 'Tarjeta de débito', NOW(), NOW(), 5),
-                                                                                               (6, '2024-11-12 12:00:00', '350.00', 'Efectivo', NOW(), NOW(), 6),
-                                                                                               (7, '2024-11-18 12:00:00', '450.00', 'Tarjeta de crédito', NOW(), NOW(), 7),
-                                                                                               (8, '2024-11-22 12:00:00', '500.00', 'Transferencia bancaria', NOW(), NOW(), 8),
-                                                                                               (9, '2024-12-05 12:00:00', '600.00', 'Tarjeta de débito', NOW(), NOW(), 9),
-                                                                                               (10, '2024-12-15 12:00:00', '700.00', 'Efectivo', NOW(), NOW(), 10);
 ON CONFLICT DO NOTHING;

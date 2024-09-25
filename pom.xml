@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.3</version>
+        <version>3.3.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.grupo2code</groupId>
-    <artifactId>hotel-appi</artifactId>
+    <artifactId>hotel-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hotel-appi</name>
-    <description>hotel-appi</description>
+    <name>hotel-api</name>
+    <description>hotel-api</description>
     <url/>
     <licenses>
         <license/>

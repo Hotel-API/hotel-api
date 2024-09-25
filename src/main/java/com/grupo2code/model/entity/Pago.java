@@ -40,7 +40,6 @@ public class Pago {
     private Reserva reserva;
 
     // Relación OneToMany para obtener los servicios de la reserva al momento de pagar
-    @OneToMany(mappedBy = "reservas", cascade = CascadeType.ALL)
-    private List<ReservaServicio> servicio;
-
+    @OneToMany(mappedBy = "pago", cascade = CascadeType.ALL)
+    private List<ReservaServicio> servicios;
 }
