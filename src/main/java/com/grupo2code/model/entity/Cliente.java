@@ -27,7 +27,7 @@ public class Cliente {
     @Column(name = "nacionalidad")
     private String nacionalidad;
 
-    @Column(name = "email", unique = true)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
     @Column(nullable = false)
@@ -47,7 +47,6 @@ public class Cliente {
 
     @Enumerated (EnumType.STRING)
     @Column(name = "role")
-
     private Role role;
 
 

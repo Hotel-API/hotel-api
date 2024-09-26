@@ -1,5 +1,6 @@
 package com.grupo2code.model.entity;
 
+import com.grupo2code.model.enums.EstadoReserva;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -21,6 +22,10 @@ public class Reserva {
 
     @Column(name = "fecha_final" )
     private LocalDateTime fechaFinal;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="Estado_Reserva")
+    private EstadoReserva estadoReserva;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;

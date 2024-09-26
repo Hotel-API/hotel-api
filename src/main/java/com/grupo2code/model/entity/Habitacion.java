@@ -1,5 +1,7 @@
 package com.grupo2code.model.entity;
 
+import com.grupo2code.model.enums.EstadoHabitacion;
+import com.grupo2code.model.enums.TipoHabitacion;
 import jakarta.persistence.*;
 import lombok.Data;
 //JPA
@@ -11,17 +13,22 @@ public class Habitacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "numero", nullable = false, length = 50)
-    private String numero;
+    @Column(name = "numero_habitación", nullable = false, length = 10)
+    private String numeroHabitacion;
 
-    @Column(name = "tipo", nullable = false)
-    private String tipo;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_habitacion")
+    private TipoHabitacion tipoHabitacion;
+
+    @Column(name = "capacidad", nullable = false)
+    private String capacidad;
 
     @Column(name = "precio_por_noche", nullable = false)
     private Double precioPorNoche;
 
-    @Column(nullable = false)
-    private Boolean disponibilidad;
+    @Enumerated(EnumType.STRING)
+    @Column (name = "estado_habitacion")
+    private EstadoHabitacion estadoHabitacion;
 
     @Column(name = "created_at",nullable = false)
     private String createdAt;
@@ -29,5 +36,8 @@ public class Habitacion {
     @Column(name = "updated_at")
     private String updatedAt;
 
-// prueba de trabajo
+    @ManyToOne
+    @JoinColumn(name="reserva_id",referencedColumnName = "id")
+    private Reserva reserva;
+
 }
